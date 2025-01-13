@@ -169,10 +169,6 @@ sds sdsnewlen(const void *init, size_t initlen) {
     return _sdsnewlen(init, initlen, 0);
 }
 
-sds sdstrynewlen(const void *init, size_t initlen) {
-    return _sdsnewlen(init, initlen, 1);
-}
-
 /* Create an empty (zero length) sds string. Even in this case the string
  * always has an implicit null term. */
 sds sdsempty(void) {
@@ -622,7 +618,7 @@ int sdsull2str(char *s, unsigned long long v) {
  * sdscatprintf(sdsempty(),"%lld\n", value);
  */
 sds sdsfromlonglong(long long value) {
-    char buf[SDS_LLSTR_SIZE];
+    char buf[SDS_LLSTR_SIZE + 10];
     int len = sdsll2str(buf,value);
 
     return sdsnewlen(buf,len);

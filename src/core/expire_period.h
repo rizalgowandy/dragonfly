@@ -1,4 +1,4 @@
-// Copyright 2022, Roman Gershman.  All rights reserved.
+// Copyright 2022, DragonflyDB authors.  All rights reserved.
 // See LICENSE for licensing terms.
 //
 
@@ -20,13 +20,13 @@ class ExpirePeriod {
     Set(ms);
   }
 
-  // alwaws returns milliseconds value.
+  // always returns milliseconds value.
   uint64_t duration_ms() const {
     return precision_ ? uint64_t(val_) * 1000 : val_;
   }
 
   // generation id for the base of this duration.
-  // when we update the generation, we need to update the value as well accoring to this
+  // when we update the generation, we need to update the value as well according to this
   // logic:
   // new_val = (old_val + old_base) - new_base.
   unsigned generation_id() const {

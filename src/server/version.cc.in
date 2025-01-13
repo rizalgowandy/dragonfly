@@ -1,4 +1,4 @@
-// Copyright 2022, Roman Gershman.  All rights reserved.
+// Copyright 2022, DragonflyDB authors.  All rights reserved.
 // See LICENSE for licensing terms.
 //
 
@@ -12,5 +12,7 @@ const char kGitTag[] = "@GIT_VER@";
 const char kGitSha[] = "@GIT_SHA1@";
 const char kGitClean[] = "@GIT_CLEAN_DIRTY@";
 const char kBuildTime[] = "@PRJ_BUILD_TIME@";
+
+const char* GetVersion() { return "df-@GIT_VER@"; }
 
 }  // namespace dfly
